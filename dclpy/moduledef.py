@@ -12,14 +12,22 @@ class ModuleDef(object):
     def __init__(self, name_mod, path_mods):
         self.name = name_mod
         self.paths = path_mods
-        self.modules = [__import__(x) for x in path_mods]
+
+        # Importa os modulos e pega seus 
+        # caminhos absolutos
+        self.modules = [
+            __import__(x).__file__ 
+            for x in path_mods
+        ]
+
+        # remove o pyc se necessario
+        self.modules = [
+            x[:-1] if x.endswith('pyc') else x
+            for x in self.modules
+        ]
 
     def has(self, cls):
-        for module in self.modules:
-            if cls.__name__ in dir(module):
-                return True
-
-        return False
+        return cls in self.modules
 
     def __str__(self):
         return "<DCLModule %s>" % (self.name)

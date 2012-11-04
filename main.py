@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
-from trace import *
 from controller import *
 from dclpy import *
 
 
-def start_system():
-    c = Controller("Home")
-    c.dispatch('/')
-    #c.dispatch('/aereo/')
 
-    print 'FIM'
+class Main:
+    def start_system(self):
+        c = Controller("Home")
+        c.dispatch('/')
+        c.dispatch('/aereo/')
 
-    import sys
-    sys.exit(0)
+        #from a import A
+        #A()
 
 
 
@@ -25,10 +24,18 @@ if __name__ == "__main__":
     DCL.the('urls_publicas', CantCreate, 'modelos')      
     DCL.the('urls_publicas', CantAccess, 'utilidades')
     DCL.the('modelos', CantInherit, 'modelos')
+    
+    DCL.only('modelos', CanAccess, 'utilidades')
 
-    #DCL.only('modelos', CanAccess, 'utilidades')
+    """DCL.mod('A', 'a')
+    DCL.mod('B', 'b')
+    DCL.mod('C', 'c')
+
+    DCL.the('A', CantAccess, 'B')
+    DCL.the('A', CantCreate, 'B')
+    DCL.the('B', CantInherit, 'C')"""
 
     DCL.init()
 
-    start_system()
-
+    a = Main().start_system()
+    print '\n\n\n'

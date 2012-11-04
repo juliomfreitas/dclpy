@@ -30,7 +30,7 @@ class CanAccess(Constraint, AffirmativeConstraint):
 class CanInherit(Constraint, AffirmativeConstraint):
     def check(self, fact):
         if fact['sender']:
-            if self.mod.has(fact['sender']) and self.mod_target.has(fact['receiver']):
+            if self.mod.has(fact['receiver']) and self.mod_target.has(fact['sender']):
                 return True
 
         return False
@@ -101,8 +101,9 @@ class TheRule(Rule):
             self.constraint.check(fact)
         except ViolationException as e:
             # TODO: do it in a best way
-            a = open('/tmp/arqerrors.txt', 'a')
+            a = open('C:\\mestrado\\arqerrors.txt', 'a')
             a.write(e.message)
+            a.write('\n')
             a.close()
             print e.message
 

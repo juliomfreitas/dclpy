@@ -1,0 +1,4 @@
+
+class ClassC(object):
+	pass
+
