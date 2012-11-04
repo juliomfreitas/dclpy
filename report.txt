@@ -1,0 +1,31 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+dclpy: architectural verification tool
+
+monitoring from 2012-02-01 12:00 to 2012-02-01 14:00 (120 minutes)
+-------------------------------------------------------------------------------
+
+Arquitectural Violations
+########################
+
+"A" can't access a method in "B"
+	  File "c:\mestrado\dclpy\a.py", line 5
+
+"A" can't create "B"
+	  File "c:\mestrado\dclpy\a.py", line 5
+
+"B" can't inherit from "C"
+	  File "c:\mestrado\dclpy\a.py", line 5
+
+Arquitectural Absences
+######################
+
+"B" MustInherit "D"
+
+-------------------------------------------------------------------------------
+
+Total: 3 violation(s) and 1 abscence(s)
+Good luck in improving your system!
+
+End of Report.
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

@@ -170,7 +170,8 @@ class FactExtractor(object):
                 print 'X' * 79
                 print 'CRIACAO DE OBJETO \n'
                 print '\tModulo que criou o objeto: ', bytecode_lastframe.co_filename
-                print '\tModulo de classe instanciada: ', bytecode_actualframe.co_filename
+                print '\tClasse instanciada: ', obj
+                print '\tModulo da classe instanciada: ', bytecode_actualframe.co_filename
                 print 'X' * 79
                 print 
 
@@ -280,8 +281,8 @@ class FactExtractor(object):
         # NOTE: python has multiple inheritance
         for parent in parents:
             fact = {'type': 'inheritance', 
-                    'sender': parent, 
-                    'receiver': subclass,
+                    'sender': subclass, 
+                    'receiver': parent,
                     'code': code}
 
             DCL.notify_fact(fact)            

@@ -30,6 +30,6 @@ class ModuleDef(object):
         return cls in self.modules
 
     def __str__(self):
-        return "<DCLModule %s>" % (self.name)
+        return "\"%s\"" % (self.name)
 
 
